@@ -591,6 +591,7 @@ CreateThread(function()
                                                         TriggerEvent("mhacking:start", math.random(2, 2), 12, HackingSuccessSafe)
                                                     end
                                                 elseif not Config.UsingSkills then
+						    TriggerEvent("mhacking:show")
                                                     TriggerEvent("mhacking:start", math.random(5, 5), 20, HackingSuccessSafe)
                                                 else
                                                     print('You need to configure whether you are using mz-skills or not')
