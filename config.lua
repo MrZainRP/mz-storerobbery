@@ -4,7 +4,7 @@ Config = {}
 --MZ-STOREROBBERY--
 -------------------
 
-Config.NotifyType = 'okok'                      -- Notification type (set to 'qbcore' to use qb-core standard notifications.)
+Config.NotifyType = 'okok'                      -- Notification type (set to 'qb' to use qb-core standard notifications.)
 
 Config.psdispatch = true                        -- set to "false" if you are not using ps-dispatch alerts (if "false", base qb-core alerts will trigger).
 
