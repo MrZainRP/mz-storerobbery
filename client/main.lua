@@ -1279,7 +1279,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorOuter1', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter1, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter1, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter1)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter1)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1347,7 +1353,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorInner1', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner1, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner1, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner1)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner1)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1419,8 +1431,16 @@ RegisterNetEvent('mz-storerobbery:client:LiquorBoth1', function()
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function() -- Done
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter1, false, false, false, true)
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner1, false, false, false, true)
+        if Config.DoorLock == 'qb-doorlock' then
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter1, false, false, false, true)
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner1, false, false, false, true)
+        elseif Config.DoorLock == 'ox_doorlock' then
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter1)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner1)
+        else
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter1)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner1)
+        end
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
@@ -1459,7 +1479,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorOuter2', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter2, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter2, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter2)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter2)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1527,7 +1553,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorInner2', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner2, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner2, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner2)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner2)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1599,8 +1631,16 @@ RegisterNetEvent('mz-storerobbery:client:LiquorBoth2', function()
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function() -- Done
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter2, false, false, false, true)
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner2, false, false, false, true)
+        if Config.DoorLock == 'qb-doorlock' then
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter2, false, false, false, true)
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner2, false, false, false, true)
+        elseif Config.DoorLock == 'ox_doorlock' then
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter2)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner2)
+        else
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter2)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner2)
+        end
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
@@ -1639,7 +1679,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorOuter3', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter3, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter3, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter3)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter3)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1707,7 +1753,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorInner3', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner3, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner3, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner3)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner3)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1779,8 +1831,16 @@ RegisterNetEvent('mz-storerobbery:client:LiquorBoth3', function()
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function() -- Done
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter3, false, false, false, true)
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner3, false, false, false, true)
+        if Config.DoorLock == 'qb-doorlock' then
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter3, false, false, false, true)
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner3, false, false, false, true)
+        elseif Config.DoorLock == 'ox_doorlock' then
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter3)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner3)
+        else
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter3)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner3)
+        end
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
@@ -1819,7 +1879,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorOuter4', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter4, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter4, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter4)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter4)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1887,7 +1953,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorInner4', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner4, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner4, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner4)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner4)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -1959,8 +2031,16 @@ RegisterNetEvent('mz-storerobbery:client:LiquorBoth4', function()
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function() -- Done
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter4, false, false, false, true)
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner4, false, false, false, true)
+        if Config.DoorLock == 'qb-doorlock' then
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter4, false, false, false, true)
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner4, false, false, false, true)
+        elseif Config.DoorLock == 'ox_doorlock' then
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter4)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner4)
+        else
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter4)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner4)
+        end
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
@@ -1999,7 +2079,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorOuter5', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter5, false, false, false, true)
+               if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter5, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter5)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter5)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -2067,7 +2153,13 @@ RegisterNetEvent('mz-storerobbery:client:LiquorInner5', function()
         TriggerEvent('animations:client:EmoteCommandStart', {"knock2"})
         exports['ps-ui']:Circle(function(success)
             if success then
-                TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner5, false, false, false, true)
+                if Config.DoorLock == 'qb-doorlock' then
+                    TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner5, false, false, false, true)
+                elseif Config.DoorLock == 'ox_doorlock' then
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner5)
+                else
+                    TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner5)
+                end
                 if Config.NotifyType == 'qb' then
                     QBCore.Functions.Notify("The door will auto lock in 30 seconds.", "info", 3500)
                 elseif Config.NotifyType == "okok" then
@@ -2139,8 +2231,16 @@ RegisterNetEvent('mz-storerobbery:client:LiquorBoth5', function()
         disableMouse = false,
         disableCombat = true,
     }, {}, {}, {}, function() -- Done
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter5, false, false, false, true)
-        TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner5, false, false, false, true)
+        if Config.DoorLock == 'qb-doorlock' then
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorOuter5, false, false, false, true)
+            TriggerServerEvent('qb-doorlock:server:updateState', Config.LiquorInner5, false, false, false, true)
+        elseif Config.DoorLock == 'ox_doorlock' then
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter5)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner5)
+        else
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorOuter5)
+            TriggerServerEvent('mz-storerobbery:server:OpenDoor', Config.LiquorInner5)
+        end
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
