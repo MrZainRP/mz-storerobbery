@@ -33,6 +33,18 @@ QBCore.Functions.CreateCallback('mz-storerobbery:server:isCombinationRight', fun
     cb(SafeCodes[safe])
 end)
 
+RegisterNetEvent('mz-storerobbery:server:OpenDoor', function(door)
+    -- ox_doorlock stuff starts here
+    local LiquorDoor = exports.ox_doorlock:getDoorFromName(door)
+    TriggerClientEvent('ox_doorlock:setState', -1, LiquorDoor.id, 0, source)
+    SetTimeout(Config.AutoLock * 1000, function()
+        TriggerClientEvent('ox_doorlock:setState', -1, LiquorDoor.id, 1)
+        TriggerEvent('ox_doorlock:stateChanged', nil, LiquorDoor.id, 1)
+    end)
+    -- ox_doorlock stuff ends here
+    -- implement your own below if needed
+end)
+
 --Cash register return
 RegisterNetEvent('mz-storerobbery:server:takeMoney', function(register, isDone)
     local src = source

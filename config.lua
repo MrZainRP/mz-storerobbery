@@ -8,6 +8,8 @@ Config.NotifyType = 'okok'                      -- Notification type (set to 'qb
 
 Config.psdispatch = true                        -- set to "false" if you are not using ps-dispatch alerts (if "false", base qb-core alerts will trigger).
 
+Config.DoorLock = 'qb-doorlock'                 -- 'qb-doorlock' for qbcore's default doorlock script | 'ox_doorlock' for ox's doorlock script | any other doorlock script, implement it in server/main.lua's "mz-storerobbery:server:OpenDoor" event.
+
 Config.UsingSkills = true                       -- Set to 'false' if you do not wish to use this resource with mz-skills
 --if "Config.UsingSkills = true", then the following parameters apply: 
 Config.HackingXPLow = 8                         -- Lowest amount of "Hacking" XP added upon successful hack.
