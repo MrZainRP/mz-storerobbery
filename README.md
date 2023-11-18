@@ -1,6 +1,8 @@
-## MZ-STOREROBBERY - a fork of the popular qb-storerobbery with or without mz-skills integration
+## MZ-STOREROBBERY - a fork of the popular qb-storerobbery (with or without mz-skills integration)
 
-By Mr_Zain#4139
+By Mr_Zain
+
+# PLEASE JOIN https://discord.gg/CqNYvE3CkA FOR PS-DISPATCH (v2) COMPATIBILITY NOTES
 
 - Outward file name changed to mz-storerobbery to track developments on forkline - all credit to Kakarot and QB-Core - this is a qb-core base script and all internal functions retain qb-storerobbery designations.
 - A varied take on qb-storerobberies with a focus on RP servers. Removed stickynote keypad function and replaced with mhacking in connection with mz-usbhacks (can be changed if you are not using mz-skills and particularly the "Hacking" skill).
@@ -56,7 +58,7 @@ If using lj-inventory, add the images to: lj-inventory/html/images/ - if you are
 
 5. Add the file "Liquorstore.lua" contaiend within the resource files to qb-doorlock/Configs to configure all alcohol doorlock configurations. (All alcohol store doorlocks are designed to operate with the conventional GTA V map, not MLO modifications)
 
-## E. PS-DISPATCH
+## E. PS-DISPATCH (v1)
 
 6. Please make sure you add the following to your ps-dispatch/server/sv_dispatchcodes.lua if you are using ps-dispatch:
 

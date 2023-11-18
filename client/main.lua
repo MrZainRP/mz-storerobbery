@@ -23,6 +23,7 @@ local lvl0 = false
 --PS-DISPATCH--
 ---------------
 
+-- IF YOU ARE USING PS-DISPATCH v2 IGNORE THE FOLLOWING, OTHERWISE YOU CONFIGURE YOUR PS-DISPATCH v1 AS FOLLOWS:
 -- YOU MUST MAKE SURE YOU ADD THESE TO YOUR PS-DISPATCH/SERVER/SV_DISPATCHCODES.LUA FILE (of course remove the "--" at the start of the code for each): 
 
 -- ["mz-storerobbery-register"] =  {displayCode = '10-90', description = "Forced Entry: Cash Register", radius = 0, recipientList = {'police'}, blipSprite = 628, blipColour = 1, blipScale = 1.5, blipLength = 2, sound = "Lose_1st", sound2 = "GTAO_FM_Events_Soundset", offset = "false", blipflash = "false"},
@@ -44,78 +45,90 @@ function GetPedGender()
 end
 
 RegisterNetEvent('mz-storerobbery:client:mzRegisterHit', function()
-    local currentPos = GetEntityCoords(PlayerPedId())
-    local locationInfo = getStreetandZone(currentPos)
-    local gender = GetPedGender()
-    TriggerServerEvent("dispatch:server:notify",{
-        dispatchcodename = "mz-storerobbery-register",          -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
-        dispatchCode = "10-90",
-        firstStreet = locationInfo,
-        gender = gender,
-        camId = camId,
-        model = nil,
-        plate = nil,
-        priority = 1,                                           -- priority
-        firstColor = nil,
-        automaticGunfire = false,
-        origin = {
-            x = currentPos.x,
-            y = currentPos.y,
-            z = currentPos.z
-        },
-        dispatchMessage = "Forced Entry: Cash Register",        -- message
-        job = {"police"}                                        -- jobs that will get the alerts
-    })
+    if not Config.dispatchver2 then 
+        local currentPos = GetEntityCoords(PlayerPedId())
+        local locationInfo = getStreetandZone(currentPos)
+        local gender = GetPedGender()
+        TriggerServerEvent("dispatch:server:notify",{
+            dispatchcodename = "mz-storerobbery-register",          -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
+            dispatchCode = "10-90",
+            firstStreet = locationInfo,
+            gender = gender,
+            camId = camId,
+            model = nil,
+            plate = nil,
+            priority = 1,                                           -- priority
+            firstColor = nil,
+            automaticGunfire = false,
+            origin = {
+                x = currentPos.x,
+                y = currentPos.y,
+                z = currentPos.z
+            },
+            dispatchMessage = "Forced Entry: Cash Register",        -- message
+            job = {"police"}                                        -- jobs that will get the alerts
+        })
+    elseif Config.dispatchver2 then 
+        exports['ps-dispatch']:mzRegisterStoreRobbery(camId)
+    end 
 end)
 
 RegisterNetEvent('mz-storerobbery:client:mzSafeHit', function()
-    local currentPos = GetEntityCoords(PlayerPedId())
-    local locationInfo = getStreetandZone(currentPos)
-    local gender = GetPedGender()
-    TriggerServerEvent("dispatch:server:notify",{
-        dispatchcodename = "mz-storerobbery-safe",          -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
-        dispatchCode = "10-90",
-        firstStreet = locationInfo,
-        gender = gender,
-        camId = camId,
-        model = nil,
-        plate = nil,
-        priority = 1,                                       -- priority
-        firstColor = nil,
-        automaticGunfire = false,
-        origin = {
-            x = currentPos.x,
-            y = currentPos.y,
-            z = currentPos.z
-        },
-        dispatchMessage = "24/7 Store Robbery",             -- message
-        job = {"police"}                                    -- jobs that will get the alerts
-    })
+    if not Config.dispatchver2 then 
+        local currentPos = GetEntityCoords(PlayerPedId())
+        local locationInfo = getStreetandZone(currentPos)
+        local gender = GetPedGender()
+        TriggerServerEvent("dispatch:server:notify",{
+            dispatchcodename = "mz-storerobbery-safe",          -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
+            dispatchCode = "10-90",
+            firstStreet = locationInfo,
+            gender = gender,
+            camId = camId,
+            model = nil,
+            plate = nil,
+            priority = 1,                                       -- priority
+            firstColor = nil,
+            automaticGunfire = false,
+            origin = {
+                x = currentPos.x,
+                y = currentPos.y,
+                z = currentPos.z
+            },
+            dispatchMessage = "24/7 Store Robbery",             -- message
+            job = {"police"}                                    -- jobs that will get the alerts
+        })
+    elseif Config.dispatchver2 then 
+        exports['ps-dispatch']:mz711StoreRobbery(camId)
+    end 
 end)
 
 RegisterNetEvent('mz-storerobbery:client:mzLiquorHit', function()
-    local currentPos = GetEntityCoords(PlayerPedId())
-    local locationInfo = getStreetandZone(currentPos)
-    local gender = GetPedGender()
-    TriggerServerEvent("dispatch:server:notify",{
-        dispatchcodename = "mz-storerobbery-liquor",          -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
-        dispatchCode = "10-90",
-        firstStreet = locationInfo,
-        gender = gender,
-        camId = camId,
-        model = nil,
-        plate = nil,
-        priority = 1,                                       -- priority
-        firstColor = nil,
-        automaticGunfire = false,
-        origin = {
-            x = currentPos.x,
-            y = currentPos.y,
-            z = currentPos.z
-        },
-        dispatchMessage = "Liquor Store Robbery",             -- message
-        job = {"police"}                                    -- jobs that will get the alerts
-    })
+    if not Config.dispatchver2 then 
+        local currentPos = GetEntityCoords(PlayerPedId())
+        local locationInfo = getStreetandZone(currentPos)
+        local gender = GetPedGender()
+        TriggerServerEvent("dispatch:server:notify",{
+            dispatchcodename = "mz-storerobbery-liquor",        -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
+            dispatchCode = "10-90",
+            firstStreet = locationInfo,
+            gender = gender,
+            camId = camId,
+            model = nil,
+            plate = nil,
+            priority = 1,                                       -- priority
+            firstColor = nil,
+            automaticGunfire = false,
+            origin = {
+                x = currentPos.x,
+                y = currentPos.y,
+                z = currentPos.z
+            },
+            dispatchMessage = "Liquor Store Robbery",           -- message
+            job = {"police"}                                    -- jobs that will get the alerts
+        })
+    elseif Config.dispatchver2 then 
+        exports['ps-dispatch']:mzLiquorStoreRobbery(camId)
+    end 
 end)
 
 -------------
