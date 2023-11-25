@@ -12,6 +12,8 @@ Config.NotifyType = 'okok'                      -- Notification type (set to 'qb
 Config.Drawtext = false                         -- Change to true to re-engage range check drawtext (Consumes more server resources with while loops)
 
 Config.psdispatch = true                        -- set to "false" if you are not using ps-dispatch alerts (if "false", base qb-core alerts will trigger).
+-- The following applies if "Config.psdispatch = true":
+Config.dispatchver2 = true                      -- set to "true" if using ps-dispatch v2 or "false" if using ps-dispatch v1
 
 Config.DispatchRegisterDelay = 60               -- Time (in seconds) between dispatch pings being sent when lockpicking registers
 
